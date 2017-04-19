@@ -16,9 +16,7 @@ $.fn.extend({
             fragments = percentage.split(' ');
         
         if(fragments.length > 1){
-            if(fragments[0] === 'top' || fragments[0] === 'bottom'){
-                side_sensitive = fragments[0];
-            }
+            side_sensitive = fragments[0];
             percentage = fragments[1];
         }
 
