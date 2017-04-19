@@ -1,6 +1,6 @@
 /**
  * @name jquery.onFullyVisible.js
- * @version 2.0.0
+ * @version 2.0.1
  * @update Apr 19, 2017
  * @website https://github.com/earthchie/jquery.onFullyVisible.js
  * @license WTFPL v.2 - http://www.wtfpl.net/
@@ -53,7 +53,7 @@ $.fn.extend({
         return $(this).isVisible(50);
     },
 
-    onVisible: function(percentage, onIn, onOut, wait_time_offset, side_sensitive){
+    onVisible: function(percentage, onIn, onOut, side_sensitive, wait_time_offset){
         var self = this,
             execute = function () {
                 $(self).each(function () {
@@ -81,13 +81,13 @@ $.fn.extend({
         return this;
     },
 
-    onFullVisible: function (onIn, onOut, wait_time_offset, side_sensitive) {
-        $(this).onVisible(100, onIn, onOut, wait_time_offset, side_sensitive);
+    onFullVisible: function (onIn, onOut, wait_time_offset, ) {
+        $(this).onVisible(100, onIn, onOut, wait_time_offset);
         return this;
     },
 
-    onHalfVisible: function (onIn, onOut, wait_time_offset, side_sensitive) {
-        $(this).onVisible(50,  onIn, onOut, wait_time_offset, side_sensitive);
+    onHalfVisible: function (onIn, onOut, side_sensitive, wait_time_offset) {
+        $(this).onVisible(50,  onIn, onOut, side_sensitive, wait_time_offset);
         return this;
     },
 
