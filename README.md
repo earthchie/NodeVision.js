@@ -25,7 +25,7 @@ $('.myItem').onFullyAppear( function() {
   console.log(this, 'are just fully appeared on viewport');
 });
 
-$('.myItem').onFullyDisappear( function() {
+$('.myItem').onNotFullyAppear( function() {
   console.log(this, 'are just just disappeared from viewport');
 });
 
@@ -39,7 +39,7 @@ $('.myItem').onFullyAppear( function() {
   console.log(this, 'are just fully appeared on viewport');
 }, 1000); // wait 1000ms after scroll finished
 
-$('.myItem').onFullyDisappear( function() {
+$('.myItem').onNotFullyAppear( function() {
   console.log(this, 'are just just disappeared from viewport');
 }, 1000); // wait 1000ms after scroll finished
 
