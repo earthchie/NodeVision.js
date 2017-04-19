@@ -1,77 +1,94 @@
 /**
  * @name jquery.onFullyVisible.js
- * @version 1.0.3
+ * @version 2.0.0
  * @update Apr 19, 2017
  * @website https://github.com/earthchie/jquery.onFullyVisible.js
  * @license WTFPL v.2 - http://www.wtfpl.net/
  * @dependencies: jQuery <https://jquery.com/>
  **/
 $.fn.extend({
-    isFullyVisible: function(){
-        var docViewTop = $(window).scrollTop();
-        var docViewBottom = docViewTop + $(window).height();
+    isVisible: function(percentage, side_sensitive){
+        
+        var viewport = {}, 
+            el = {},
+            visibility;
+        
+        percentage = percentage || 1;
+        el.percentage = parseFloat(percentage.toString().replace(/%|\,/g,''))/100;
 
-        var elemTop = $(this).offset().top;
-        var elemBottom = elemTop + $(this).outerHeight();
+        viewport.top = $(window).scrollTop();
+        viewport.bottom = viewport.top + $(window).height()
 
-        return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+        el.height = $(this).outerHeight();
+        el.offset = el.height * el.percentage;
+
+        el.top = {}
+        el.top.start = $(this).offset().top;
+        el.top.end = el.top.start + el.offset;
+
+        el.bottom = {};
+        el.bottom.end = el.top.start + el.height;
+        el.bottom.start = el.bottom.end - el.offset;
+        
+        visibility = {
+            top: el.top.start >= viewport.top && el.top.end <= viewport.bottom,
+            bottom: el.bottom.start >= viewport.top && el.bottom.end <= viewport.bottom
+        }
+
+        if(side_sensitive === 'top'){
+            return visibility.top;
+        }else if(side_sensitive === 'bottom'){
+            return visibility.bottom;
+        }else{
+            return visibility.top || visibility.bottom;
+        }
+
     },
-    onFullyVisible: function(callback, wait_time_offset){
+
+    isFullVisible: function () {
+        return $(this).isVisible(100);
+    },
+
+    isHalfVisible: function () {
+        return $(this).isVisible(50);
+    },
+
+    onVisibleMoreThan: function(percentage, onIn, onOut, wait_time_offset, side_sensitive){
         var self = this,
-            execute = function(self){
-                $(self).each(function(){
-                    if($(this).isFullyVisible()){
+            execute = function () {
+                $(self).each(function () {
+                    if ($(this).isVisible(percentage, side_sensitive)) {
                         $(this).data('appear', 1);
-                        if(typeof callback === 'function'){
-                            (callback.bind(this))()
+                        if (typeof onIn === 'function') {
+                            (onIn.bind(this))()
+                        }
+                    }else{
+                        if ($(this).data('appear') == 1 && typeof onOut === 'function') {
+                            (onOut.bind(this))()
                         }
                     }
                 });
             },
             timer;
-        
-        wait_time_offset = wait_time_offset || 200;
 
-        execute(self);
-        $(window).on('scroll', function(){
+        execute();
+        $(window).on('scroll', function () {
 
-            if(timer){
-                clearTimeout(timer);
-            }
+            timer && clearTimeout(timer);
+            timer = setTimeout(execute, wait_time_offset || 200);
 
-            timer = setTimeout(function(){
-                execute(self);
-            }, wait_time_offset);
-            
         });
         return this;
     },
-    onNotFullyVisible: function(callback, wait_time_offset){
-        var self = this,
-            execute = function(self){
-                $(self).each(function(){
-                    if(!$(this).isFullyVisible()){
-                        if($(this).data('appear') == 1 && typeof callback === 'function'){
-                            (callback.bind(this))()
-                        }
-                    }
-                });
-            },
-            timer;
-        
-        wait_time_offset = wait_time_offset || 200;
-        execute(self);
-        $(window).on('scroll', function(){
 
-            if(timer){
-                clearTimeout(timer);
-            }
-
-            timer = setTimeout(function(){
-                execute(self);
-            }, wait_time_offset);
-            
-        });
+    onFullVisible: function (onIn, onOut, wait_time_offset, side_sensitive) {
+        $(this).onVisibleMoreThan(100, onIn, onOut, wait_time_offset, side_sensitive);
         return this;
-    }
+    },
+
+    onHalfVisible: function (onIn, onOut, wait_time_offset, side_sensitive) {
+        $(this).onVisibleMoreThan(50,  onIn, onOut, wait_time_offset, side_sensitive);
+        return this;
+    },
+
 });
