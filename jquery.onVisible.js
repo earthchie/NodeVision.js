@@ -2,7 +2,7 @@
  * @name jquery.onVisible.js
  * @version 2.0.1
  * @update Apr 19, 2017
- * @website https://github.com/earthchie/jquery.onFullyVisible.js
+ * @website https://github.com/earthchie/jquery.onVisible.js
  * @license WTFPL v.2 - http://www.wtfpl.net/
  * @dependencies: jQuery <https://jquery.com/>
  **/
