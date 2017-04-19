@@ -41,7 +41,7 @@ $.fn.extend({
 
             timer = setTimeout(function(){
                 execute(self);
-            }, wait_time_offet);
+            }, wait_time_offset);
             
         });
         return this;
