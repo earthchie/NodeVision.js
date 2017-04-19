@@ -13,6 +13,12 @@ In version 2.0.0, you can freely change this percentage number to match your nee
 
 For example: trigger event when ``#myDiv``'s top half is visible more than 30%
 
+```javascript
+$('#myDiv').onVisible('30%', function() {
+  console.log('#myDiv's top half is just visible more than 30% of it on viewport');
+}, 'top');
+```
+
 Sound cool eh? Star this project if you like it to support me :)
 
 # DISCLAIMER
