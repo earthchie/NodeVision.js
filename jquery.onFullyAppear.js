@@ -1,6 +1,6 @@
 /**
  * @name jquery.onFullyAppear.js
- * @version 1.0.1
+ * @version 1.0.2
  * @update Apr 19, 2017
  * @website https://github.com/earthchie/jquery.onFullyAppear.js
  * @license WTFPL v.2 - http://www.wtfpl.net/
@@ -16,7 +16,7 @@ $.fn.extend({
 
         return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
     },
-    onFullyAppear: function(callback){
+    onFullyAppear: function(callback, wait_time_offet){
         var self = this,
             execute = function(self){
                 $(self).each(function(){
@@ -29,6 +29,8 @@ $.fn.extend({
                 });
             },
             timer;
+        
+        wait_time_offet = wait_time_offet || 200;
 
         execute(self);
         $(window).on('scroll', function(){
@@ -39,12 +41,12 @@ $.fn.extend({
 
             timer = setTimeout(function(){
                 execute(self);
-            }, 250);
+            }, wait_time_offet);
             
         });
         return this;
     },
-    onFullyDisappear: function(callback){
+    onFullyDisappear: function(callback, wait_time_offet){
         var self = this,
             execute = function(self){
                 $(self).each(function(){
@@ -56,7 +58,8 @@ $.fn.extend({
                 });
             },
             timer;
-
+        
+        wait_time_offet = wait_time_offet || 200;
         execute(self);
         $(window).on('scroll', function(){
 
@@ -66,16 +69,9 @@ $.fn.extend({
 
             timer = setTimeout(function(){
                 execute(self);
-            }, 250);
+            }, wait_time_offet);
             
         });
         return this;
     }
-});
-
-$('.uk-card').onFullyAppear(function() {
-    $(this).find('h3').text('yay');
-});
-$('.uk-card').onFullyDisappear(function() {
-    $(this).find('h3').text('bye');
 });
