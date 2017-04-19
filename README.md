@@ -14,17 +14,18 @@ Pull requests are always welcome.
 
 ```javascript
 
-if ( $('.myItem').isFullyVisible() ) {
+if ($('.myItem').isFullyVisible()) {
   console.log('myItem is fully visible on viewport')
 } else {
   console.log('myItem is not fully visible on viewport')
 }
 
-$('.myItem').onFullyAppear(function(){
-  console.log(this, 'are fully appeared on viewport');
+$('.myItem').onFullyAppear( function() {
+  console.log(this, 'are just fully appeared on viewport');
 });
-$('.myItem').onFullyDisappear(function(){
-  console.log(this, 'are just disappeared from viewport');
+
+$('.myItem').onFullyDisappear( function() {
+  console.log(this, 'are just just disappeared from viewport');
 });
 
 ```
