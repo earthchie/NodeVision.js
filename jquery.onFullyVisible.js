@@ -1,6 +1,6 @@
 /**
  * @name jquery.onFullyVisible.js
- * @version 1.0.2
+ * @version 1.0.3
  * @update Apr 19, 2017
  * @website https://github.com/earthchie/jquery.onFullyVisible.js
  * @license WTFPL v.2 - http://www.wtfpl.net/
@@ -12,7 +12,7 @@ $.fn.extend({
         var docViewBottom = docViewTop + $(window).height();
 
         var elemTop = $(this).offset().top;
-        var elemBottom = elemTop + $(this).height();
+        var elemBottom = elemTop + $(this).outerHeight();
 
         return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
     },
