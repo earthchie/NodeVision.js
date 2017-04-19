@@ -53,7 +53,7 @@ $.fn.extend({
         return $(this).isVisible(50);
     },
 
-    onVisibleMoreThan: function(percentage, onIn, onOut, wait_time_offset, side_sensitive){
+    onVisible: function(percentage, onIn, onOut, wait_time_offset, side_sensitive){
         var self = this,
             execute = function () {
                 $(self).each(function () {
@@ -82,12 +82,12 @@ $.fn.extend({
     },
 
     onFullVisible: function (onIn, onOut, wait_time_offset, side_sensitive) {
-        $(this).onVisibleMoreThan(100, onIn, onOut, wait_time_offset, side_sensitive);
+        $(this).onVisible(100, onIn, onOut, wait_time_offset, side_sensitive);
         return this;
     },
 
     onHalfVisible: function (onIn, onOut, wait_time_offset, side_sensitive) {
-        $(this).onVisibleMoreThan(50,  onIn, onOut, wait_time_offset, side_sensitive);
+        $(this).onVisible(50,  onIn, onOut, wait_time_offset, side_sensitive);
         return this;
     },
 
