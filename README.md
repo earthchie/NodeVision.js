@@ -1,6 +1,9 @@
 # jquery.onFullyAppear.js
 
-Just a dirty jquery extension that execute your scripts when specific elements has been scrolled to visible on screen.
+Just a dirty jQuery extension that execute your scripts when specific elements has been scrolled to visible on screen.
+
+Most out there on the internet, I found none of it suit my use. So I decided to write it myself.
+Those are just detect if part of elements is visible then boom! fire the onAppear event, but what I really need is only fire when all parts of your element are FULLY visible, and also tell you when that element is go out of viewport too.
 
 # DISCLAIMER
 I haven't done any proper test on this project, both functional and cross-browser compat.
