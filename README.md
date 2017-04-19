@@ -7,7 +7,7 @@ Most out there on the internet, I found none of it suit my use. So I decided to 
 Those I found are just scripts to detect if parts of your element is visible then fire the event, but what I really need is only fire when all parts of your element are FULLY visible, and also tell you when that element is not anymore fully visible too.
 
 Then at some point I ask myself. Why to made it only detect fully visible when you can replace "fully" with percentage?
-Fully visible means 100% of it is visible right?. Here we go version 2.0.0 BAM!.
+Fully visible means 100% of it is visible right? Here we go version 2.0.0 BAM!
 
 In version 2.0.0, you can freely change this percentage number to match your needs.
 
