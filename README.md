@@ -104,6 +104,12 @@ $('.myItem').onVisible('25%', function() {
   console.log(this, "'s bottom half are not anymore visible more than 25% of it on viewport");
 }, 'bottom', 2000); // wait 2000ms after scroll finished
 
+$('.myItem').onVisible('25%', function() {
+  console.log(this, 'are just visible more than 25% of it on viewport');
+}, function () {
+  console.log(this, 'are not anymore visible more than 25% of it on viewport');
+}, null, 3000); // wait 3000ms after scroll finished
+
 ```
 
 ## License
