@@ -1,6 +1,6 @@
 /**
  * @name jquery.onVisible.js
- * @version 2.0.2
+ * @version 2.0.3
  * @update Apr 19, 2017
  * @website https://github.com/earthchie/jquery.onVisible.js
  * @license WTFPL v.2 - http://www.wtfpl.net/
@@ -13,7 +13,7 @@ $.fn.extend({
             el = {},
             side_sensitive = false,
             visibility,
-            fragments = percentage.split(' ');
+            fragments = percentage.toString().split(' ');
         
         if(fragments.length > 1){
             side_sensitive = fragments[0];
