@@ -46,7 +46,7 @@ $.fn.extend({
         });
         return this;
     },
-    onFullyDisappear: function(callback, wait_time_offset){
+    onNotFullyAppear: function(callback, wait_time_offset){
         var self = this,
             execute = function(self){
                 $(self).each(function(){
