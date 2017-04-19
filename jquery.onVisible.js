@@ -81,8 +81,8 @@ $.fn.extend({
         return this;
     },
 
-    onFullVisible: function (onIn, onOut, wait_time_offset, ) {
-        $(this).onVisible(100, onIn, onOut, wait_time_offset);
+    onFullVisible: function (onIn, onOut, wait_time_offset) {
+        $(this).onVisible(100, onIn, onOut, null, wait_time_offset);
         return this;
     },
 
