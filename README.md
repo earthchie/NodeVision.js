@@ -14,9 +14,9 @@ In version 2.0.0, you can freely change this percentage number to match your nee
 For example: trigger event when ``#myDiv``'s top half is visible more than 30%
 
 ```javascript
-$('#myDiv').onVisible('30%', function() {
+$('#myDiv').onVisible('top 30%', function() {
   console.log("#myDiv's top half is just visible more than 30% of it on viewport");
-}, 'top');
+});
 ```
 
 Sound cool eh? Star this project if you like it to support me :)
@@ -50,13 +50,13 @@ if ($('.myItem').isVisible('25%')) {
   console.log('myItem is visible less than 25% of it on viewport')
 }
 
-if ($('.myItem').isVisible('25%', 'top')) {
+if ($('.myItem').isVisible('top 25%')) {
   console.log("myItem's top half is visible more than 25% of it on viewport")
 } else {
   console.log("myItem's top half is visible less than 25% of it on viewport")
 }
 
-if ($('.myItem').isVisible('25%', 'bottom')) {
+if ($('.myItem').isVisible('bottom 25%')) {
   console.log("myItem's bottom half is visible more than 25% of it on viewport")
 } else {
   console.log("myItem's bottom half is visible less than 25% of it on viewport")
@@ -89,17 +89,11 @@ $('.myItem').onVisible('25%', function() {
   console.log(this, 'are not anymore visible more than 25% of it on viewport');
 });
 
-$('.myItem').onHalfVisible(function() {
-  console.log(this, "'s top half are just visible on viewport");
-}, function () {
-  console.log(this, "'s top half are not anymore visible on viewport");
-}, 'top'); // top or bottom
-
-$('.myItem').onVisible('25%', function() {
+$('.myItem').onVisible('bottom 25%', function() {
   console.log(this, "'s bottom half just visible more than 25% of it on viewport");
 }, function () {
   console.log(this, "'s bottom half are not anymore visible more than 25% of it on viewport");
-}, 'bottom'); // top or bottom
+});
 
 ```
 
@@ -113,17 +107,11 @@ $('.myItem').onFullVisible( function() {
   console.log(this, 'are not anymore fully visible on viewport');
 }, 1000); // wait 1000ms after scroll finished
 
-$('.myItem').onVisible('25%', function() {
+$('.myItem').onVisible('bottom 25%', function() {
   console.log(this, "'s bottom half just visible more than 25% of it on viewport");
 }, function () {
   console.log(this, "'s bottom half are not anymore visible more than 25% of it on viewport");
-}, 'bottom', 2000); // wait 2000ms after scroll finished
-
-$('.myItem').onVisible('25%', function() {
-  console.log(this, 'are just visible more than 25% of it on viewport');
-}, function () {
-  console.log(this, 'are not anymore visible more than 25% of it on viewport');
-}, null, 3000); // wait 3000ms after scroll finished
+}, 2000); // wait 2000ms after scroll finished
 
 ```
 
