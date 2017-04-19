@@ -16,7 +16,7 @@ $.fn.extend({
 
         return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
     },
-    onFullyAppear: function(callback, wait_time_offet){
+    onFullyAppear: function(callback, wait_time_offset){
         var self = this,
             execute = function(self){
                 $(self).each(function(){
@@ -30,7 +30,7 @@ $.fn.extend({
             },
             timer;
         
-        wait_time_offet = wait_time_offet || 200;
+        wait_time_offset = wait_time_offset || 200;
 
         execute(self);
         $(window).on('scroll', function(){
@@ -46,7 +46,7 @@ $.fn.extend({
         });
         return this;
     },
-    onFullyDisappear: function(callback, wait_time_offet){
+    onFullyDisappear: function(callback, wait_time_offset){
         var self = this,
             execute = function(self){
                 $(self).each(function(){
@@ -59,7 +59,7 @@ $.fn.extend({
             },
             timer;
         
-        wait_time_offet = wait_time_offet || 200;
+        wait_time_offset = wait_time_offset || 200;
         execute(self);
         $(window).on('scroll', function(){
 
@@ -69,7 +69,7 @@ $.fn.extend({
 
             timer = setTimeout(function(){
                 execute(self);
-            }, wait_time_offet);
+            }, wait_time_offset);
             
         });
         return this;
