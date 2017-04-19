@@ -1,8 +1,8 @@
 /**
- * @name jquery.onFullyAppear.js
+ * @name jquery.onFullyVisible.js
  * @version 1.0.2
  * @update Apr 19, 2017
- * @website https://github.com/earthchie/jquery.onFullyAppear.js
+ * @website https://github.com/earthchie/jquery.onFullyVisible.js
  * @license WTFPL v.2 - http://www.wtfpl.net/
  * @dependencies: jQuery <https://jquery.com/>
  **/
@@ -16,7 +16,7 @@ $.fn.extend({
 
         return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
     },
-    onFullyAppear: function(callback, wait_time_offset){
+    onFullyVisible: function(callback, wait_time_offset){
         var self = this,
             execute = function(self){
                 $(self).each(function(){
@@ -46,7 +46,7 @@ $.fn.extend({
         });
         return this;
     },
-    onNotFullyAppear: function(callback, wait_time_offset){
+    onNotFullyVisible: function(callback, wait_time_offset){
         var self = this,
             execute = function(self){
                 $(self).each(function(){
