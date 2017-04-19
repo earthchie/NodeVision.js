@@ -15,7 +15,7 @@ For example: trigger event when ``#myDiv``'s top half is visible more than 30%
 
 ```javascript
 $('#myDiv').onVisible('30%', function() {
-  console.log('#myDiv's top half is just visible more than 30% of it on viewport');
+  console.log("#myDiv's top half is just visible more than 30% of it on viewport");
 }, 'top');
 ```
 
