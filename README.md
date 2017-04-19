@@ -21,12 +21,12 @@ if ($('.myItem').isFullyVisible()) {
   console.log('myItem is not fully visible on viewport')
 }
 
-$('.myItem').onFullyAppear( function() {
-  console.log(this, 'are just fully appeared on viewport');
+$('.myItem').onFullyVisible( function() {
+  console.log(this, 'are just fully visible on viewport');
 });
 
-$('.myItem').onNotFullyAppear( function() {
-  console.log(this, 'are just just disappeared from viewport');
+$('.myItem').onNotFullyVisible( function() {
+  console.log(this, 'are not fully visible from viewport just now');
 });
 
 ```
@@ -35,12 +35,12 @@ Due to performance reasons, this script will wait for some amount of time to mak
 
 ```javascript
 
-$('.myItem').onFullyAppear( function() {
-  console.log(this, 'are just fully appeared on viewport');
+$('.myItem').onFullyVisible( function() {
+  console.log(this, 'are just fully visible on viewport');
 }, 1000); // wait 1000ms after scroll finished
 
-$('.myItem').onNotFullyAppear( function() {
-  console.log(this, 'are just just disappeared from viewport');
+$('.myItem').onNotFullyVisible( function() {
+  console.log(this, 'are not fully visible from viewport just now');
 }, 1000); // wait 1000ms after scroll finished
 
 ```
