@@ -1,18 +1,27 @@
 /**
  * @name jquery.onVisible.js
- * @version 2.0.1
+ * @version 2.0.2
  * @update Apr 19, 2017
  * @website https://github.com/earthchie/jquery.onVisible.js
  * @license WTFPL v.2 - http://www.wtfpl.net/
  * @dependencies: jQuery <https://jquery.com/>
  **/
 $.fn.extend({
-    isVisible: function(percentage, side_sensitive){
+    isVisible: function(percentage){
         
         var viewport = {}, 
             el = {},
-            visibility;
+            side_sensitive = false,
+            visibility,
+            fragments = percentage.split(' ');
         
+        if(fragments.length > 1){
+            if(fragments[0] === 'top' || fragments[0] === 'bottom'){
+                side_sensitive = fragments[0];
+            }
+            percentage = fragments[1];
+        }
+
         percentage = percentage || 1;
         el.percentage = parseFloat(percentage.toString().replace(/%|\,/g,''))/100;
 
@@ -53,11 +62,11 @@ $.fn.extend({
         return $(this).isVisible(50);
     },
 
-    onVisible: function(percentage, onIn, onOut, side_sensitive, wait_time_offset){
+    onVisible: function(percentage, onIn, onOut, wait_time_offset){
         var self = this,
             execute = function () {
                 $(self).each(function () {
-                    if ($(this).isVisible(percentage, side_sensitive)) {
+                    if ($(this).isVisible(percentage)) {
                         $(this).data('appear', 1);
                         if (typeof onIn === 'function') {
                             (onIn.bind(this))()
@@ -82,12 +91,12 @@ $.fn.extend({
     },
 
     onFullVisible: function (onIn, onOut, wait_time_offset) {
-        $(this).onVisible(100, onIn, onOut, null, wait_time_offset);
+        $(this).onVisible(100, onIn, onOut, wait_time_offset);
         return this;
     },
 
-    onHalfVisible: function (onIn, onOut, side_sensitive, wait_time_offset) {
-        $(this).onVisible(50,  onIn, onOut, side_sensitive, wait_time_offset);
+    onHalfVisible: function (onIn, onOut, wait_time_offset) {
+        $(this).onVisible(50,  onIn, onOut, wait_time_offset);
         return this;
     },
 
