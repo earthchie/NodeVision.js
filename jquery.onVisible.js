@@ -1,5 +1,5 @@
 /**
- * @name jquery.onFullyVisible.js
+ * @name jquery.onVisible.js
  * @version 2.0.1
  * @update Apr 19, 2017
  * @website https://github.com/earthchie/jquery.onFullyVisible.js
