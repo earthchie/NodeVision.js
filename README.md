@@ -31,5 +31,19 @@ $('.myItem').onFullyDisappear( function() {
 
 ```
 
+Due to performance reasons, this script will wait for some amount of time to make sure scroll has been finished before evaluate the state of elements. Default value is 200ms. You can change this value by passing it through a second parameter.
+
+```javascript
+
+$('.myItem').onFullyAppear( function() {
+  console.log(this, 'are just fully appeared on viewport');
+}, 1000); // wait 1000ms after scroll finished
+
+$('.myItem').onFullyDisappear( function() {
+  console.log(this, 'are just just disappeared from viewport');
+}, 1000); // wait 1000ms after scroll finished
+
+```
+
 ## License
 WTFPL 2.0 http://www.wtfpl.net/
