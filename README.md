@@ -15,7 +15,7 @@ For example: trigger event when ``#myDiv``'s top half is visible more than 30%
 
 ```javascript
 $('#myDiv').onVisible('top 30%', function() {
-  console.log("#myDiv's top half is just visible more than 30% of it on viewport");
+  console.log("#myDiv's top part is just visible more than 30% of it on viewport");
 });
 ```
 
@@ -51,15 +51,15 @@ if ($('.myItem').isVisible('25%')) {
 }
 
 if ($('.myItem').isVisible('top 25%')) {
-  console.log("myItem's top half is visible more than 25% of it on viewport")
+  console.log("myItem's top part is visible more than 25% of it on viewport")
 } else {
-  console.log("myItem's top half is visible less than 25% of it on viewport")
+  console.log("myItem's top part is visible less than 25% of it on viewport")
 }
 
 if ($('.myItem').isVisible('bottom 25%')) {
-  console.log("myItem's bottom half is visible more than 25% of it on viewport")
+  console.log("myItem's bottom part is visible more than 25% of it on viewport")
 } else {
-  console.log("myItem's bottom half is visible less than 25% of it on viewport")
+  console.log("myItem's bottom part is visible less than 25% of it on viewport")
 }
 ```
 
@@ -90,9 +90,9 @@ $('.myItem').onVisible('25%', function() {
 });
 
 $('.myItem').onVisible('bottom 25%', function() {
-  console.log(this, "'s bottom half just visible more than 25% of it on viewport");
+  console.log(this, "'s bottom part are just visible more than 25% of it on viewport");
 }, function () {
-  console.log(this, "'s bottom half are not anymore visible more than 25% of it on viewport");
+  console.log(this, "'s bottom part are not anymore visible more than 25% of it on viewport");
 });
 
 ```
