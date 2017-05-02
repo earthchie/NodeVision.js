@@ -1,4 +1,4 @@
-# jquery.onFullyVisible.js
+# jquery.onVisible.js
 
 Just a dirty jQuery extension that execute your scripts when specific elements has been scrolled to visible on screen.
 
