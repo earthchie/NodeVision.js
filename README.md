@@ -54,7 +54,7 @@ more examples
 ```javascript
 NodeVision('#myDiv').isVisible('20%'); // return true if #myDiv visible >= 20% of it on viewport
 NodeVision('#myDiv').isVisible('top 20%'); // return true if #myDiv visible >= 20% of it from the top on viewport
-NodeVision('#myDiv').isVisible('top 20%'); // return true if #myDiv visible >= 20% of it from the bottom on viewport
+NodeVision('#myDiv').isVisible('bottom 20%'); // return true if #myDiv visible >= 20% of it from the bottom on viewport
 ```
 
 ## raise event when fullfill the conditions
