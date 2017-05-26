@@ -71,7 +71,9 @@ NodeVision('#myDiv')
   console.log(this, 'is not anymore visible on viewport');
   
 })
+```
 
+```javascript
 NodeVision('#myDiv')
 .ifVisible('30%')
 .then(function () {
@@ -83,7 +85,9 @@ NodeVision('#myDiv')
   console.log(this, 'is not anymore visible more that 30% of it on viewport');
   
 });
+```
 
+```javascript
 NodeVision('#myDiv')
 .ifVisible('top 30%')
 .then(function () {
@@ -95,7 +99,9 @@ NodeVision('#myDiv')
   console.log(this, 'is not anymore visible more that 30% of it from the top on viewport');
   
 });
+```
 
+```javascript
 // more verbal-like
 NodeVision('#myDiv')
 .ifVisible('30%')
@@ -109,7 +115,9 @@ NodeVision('#myDiv')
   console.log(this, 'is not anymore visible more that 30% of it from the top on viewport');
   
 });
+```
 
+```javascript
 NodeVision('#myDiv')
 .ifVisible('bottom 30%')
 .then(function () {
@@ -121,7 +129,9 @@ NodeVision('#myDiv')
   console.log(this, 'is not anymore visible more that 30% of it from the bottom on viewport');
   
 });
+```
 
+```javascript
 // more verbal-like
 NodeVision('#myDiv')
 .ifVisible('30%')
