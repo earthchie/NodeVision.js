@@ -57,7 +57,7 @@ NodeVision('#myDiv').isVisible('top 20%'); // return true if #myDiv visible >= 2
 NodeVision('#myDiv').isVisible('bottom 20%'); // return true if #myDiv visible >= 20% of it from the bottom on viewport
 ```
 
-## Trigger event when user scroll into it
+## Trigger events when user scroll into it
 
 ```javascript
 NodeVision('#myDiv')
