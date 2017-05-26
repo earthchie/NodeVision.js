@@ -11,7 +11,7 @@ Fully visible means 100% of it is visible right? Here we go!
 
 # How to use
 
-For example: trigger event when ``#myDiv``'s top half is visible more than 30%
+For example: trigger event when ``#myDiv`` is visible more than 30%
 
 ```javascript
 NodeVision('#myDiv')
