@@ -1,21 +1,25 @@
-# jquery.onVisible.js
+# NodeVision
 
-Just a dirty jQuery extension that execute your scripts when specific elements has been scrolled to visible on screen.
+Just a dirty scripts that fire event when specific elements has been scrolled to visible on screen.
 
 Most out there on the internet, I found none of it suit my use. So I decided to write it myself.
 
 Those I found are just scripts to detect if parts of your element is visible then fire the event, but what I really need is only fire when all parts of your element are FULLY visible, and also tell you when that element is not anymore fully visible too.
 
 Then at some point I ask myself. Why to made it only detect fully visible when you can replace "fully" with percentage?
-Fully visible means 100% of it is visible right? Here we go version 2.0.0 BAM!
+Fully visible means 100% of it is visible right? Here we go!
 
-In version 2.0.0, you can freely change this percentage number to match your needs.
+# How to use
 
 For example: trigger event when ``#myDiv``'s top half is visible more than 30%
 
 ```javascript
-$('#myDiv').onVisible('top 30%', function() {
-  console.log("#myDiv's top part is just visible more than 30% of it on viewport");
+NodeVision('#myDiv')
+.ifVisible('30%')
+.then(function () {
+  console.log(this, 'is just visible more that 30% of it on viewport');
+}).else(function () {
+  console.log(this, ' is not anymore visible more that 30% of it on viewport');
 });
 ```
 
@@ -31,87 +35,76 @@ Pull requests are always welcome.
 ## Visibility check
 
 ```javascript
-
-if ($('.myItem').isFullVisible()) {
-  console.log('myItem is fully visible on viewport')
-} else {
-  console.log('myItem is not fully visible on viewport')
-}
-
-if ($('.myItem').isHalfVisible()) {
-  console.log('myItem is visible more than half of it on viewport')
-} else {
-  console.log('myItem is not visible more than half of it on viewport')
-}
-
-if ($('.myItem').isVisible('25%')) {
-  console.log('myItem is visible more than 25% of it on viewport')
-} else {
-  console.log('myItem is visible less than 25% of it on viewport')
-}
-
-if ($('.myItem').isVisible('top 25%')) {
-  console.log("myItem's top part is visible more than 25% of it on viewport")
-} else {
-  console.log("myItem's top part is visible less than 25% of it on viewport")
-}
-
-if ($('.myItem').isVisible('bottom 25%')) {
-  console.log("myItem's bottom part is visible more than 25% of it on viewport")
-} else {
-  console.log("myItem's bottom part is visible less than 25% of it on viewport")
-}
+NodeVision('#myDiv').isVisible(); // true or false
 ```
 
-## execute script on visible and also when it not fullfill conditions too
+or
 
 ```javascript
-
-$('.myItem').onFullVisible( function() {
-  console.log(this, 'are just fully visible on viewport');
-});
-
-$('.myItem').onFullVisible( function() {
-  console.log(this, 'are just fully visible on viewport');
-}, function () {
-  console.log(this, 'are not anymore fully visible on viewport');
-});
-
-$('.myItem').onHalfVisible( function() {
-  console.log(this, 'are just visible more than half of it on viewport');
-}, function () {
-  console.log(this, 'are not anymore visible more than half of it on viewport');
-});
-
-$('.myItem').onVisible('25%', function() {
-  console.log(this, 'are just visible more than 25% of it on viewport');
-}, function () {
-  console.log(this, 'are not anymore visible more than 25% of it on viewport');
-});
-
-$('.myItem').onVisible('bottom 25%', function() {
-  console.log(this, "'s bottom part are just visible more than 25% of it on viewport");
-}, function () {
-  console.log(this, "'s bottom part are not anymore visible more than 25% of it on viewport");
-});
-
+var myDiv = document.getElementById('myDiv')
+NodeVision(myDiv).isVisible(); // true or false
 ```
 
-Due to performance reasons, this script will wait for some amount of time to make sure scroll has been finished before evaluate the state of elements. Default value is 200ms. You can change this value by passing it through a parameter - e.g.
+more examples
 
 ```javascript
+NodeVision('#myDiv').isVisible('20%'); // return true if #myDiv visible >= 20% of it on viewport
+NodeVision('#myDiv').isVisible('top 20%'); // return true if #myDiv visible >= 20% of it from the top on viewport
+NodeVision('#myDiv').isVisible('top 20%'); // return true if #myDiv visible >= 20% of it from the bottom on viewport
+```
 
-$('.myItem').onFullVisible( function() {
-  console.log(this, 'are just fully visible on viewport');
-}, function () {
-  console.log(this, 'are not anymore fully visible on viewport');
-}, 1000); // wait 1000ms after scroll finished
+## raise event when fullfill the conditions
 
-$('.myItem').onVisible('bottom 25%', function() {
-  console.log(this, "'s bottom half just visible more than 25% of it on viewport");
-}, function () {
-  console.log(this, "'s bottom half are not anymore visible more than 25% of it on viewport");
-}, 2000); // wait 2000ms after scroll finished
+```javascript
+NodeVision('#myDiv')
+.ifVisible()
+.then(function () {
+  console.log(this, 'is just visible on viewport');
+}).else(function () {
+  console.log(this, 'is not anymore visible on viewport');
+})
+
+NodeVision('#myDiv')
+.ifVisible('30%')
+.then(function () {
+  console.log(this, 'is just visible more that 30% of it on viewport');
+}).else(function () {
+  console.log(this, 'is not anymore visible more that 30% of it on viewport');
+});
+
+NodeVision('#myDiv')
+.ifVisible('top 30%')
+.then(function () {
+  console.log(this, 'is just visible more that 30% of it from the top on viewport');
+}).else(function () {
+  console.log(this, 'is not anymore visible more that 30% of it from the top on viewport');
+});
+
+// more verbal-like
+NodeVision('#myDiv')
+.ifVisible('30%').fromTop()
+.then(function () {
+  console.log(this, 'is just visible more that 30% of it from the top on viewport');
+}).else(function () {
+  console.log(this, 'is not anymore visible more that 30% of it from the top on viewport');
+});
+
+NodeVision('#myDiv')
+.ifVisible('bottom 30%')
+.then(function () {
+  console.log(this, 'is just visible more that 30% of it from the bottom on viewport');
+}).else(function () {
+  console.log(this, 'is not anymore visible more that 30% of it from the bottom on viewport');
+});
+
+// more verbal-like
+NodeVision('#myDiv')
+.ifVisible('30%').fromBottom()
+.then(function () {
+  console.log(this, 'is just visible more that 30% of it from the bottom on viewport');
+}).else(function () {
+  console.log(this, 'is not anymore visible more that 30% of it from the bottom on viewport');
+});
 
 ```
 
