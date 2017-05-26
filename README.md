@@ -98,7 +98,8 @@ NodeVision('#myDiv')
 
 // more verbal-like
 NodeVision('#myDiv')
-.ifVisible('30%').fromTop()
+.ifVisible('30%')
+.fromTop()
 .then(function () {
 
   console.log(this, 'is just visible more that 30% of it from the top on viewport');
@@ -123,7 +124,8 @@ NodeVision('#myDiv')
 
 // more verbal-like
 NodeVision('#myDiv')
-.ifVisible('30%').fromBottom()
+.ifVisible('30%')
+.fromBottom()
 .then(function () {
 
   console.log(this, 'is just visible more that 30% of it from the bottom on viewport');
