@@ -18,11 +18,11 @@ NodeVision('#myDiv')
 .ifVisible('30%')
 .then(function () {
 
-  console.log(this, 'is just visible more that 30% of it on viewport');
+  console.log(this, 'is just visible more than 30% of it on viewport');
   
 }).else(function () {
 
-  console.log(this, 'is not anymore visible more that 30% of it on viewport');
+  console.log(this, 'is not anymore visible more than 30% of it on viewport');
   
 });
 ```
@@ -78,11 +78,11 @@ NodeVision('#myDiv')
 .ifVisible('30%')
 .then(function () {
 
-  console.log(this, 'is just visible more that 30% of it on viewport');
+  console.log(this, 'is just visible more than 30% of it on viewport');
   
 }).else(function () {
 
-  console.log(this, 'is not anymore visible more that 30% of it on viewport');
+  console.log(this, 'is not anymore visible more than 30% of it on viewport');
   
 });
 ```
@@ -92,11 +92,11 @@ NodeVision('#myDiv')
 .ifVisible('top 30%')
 .then(function () {
 
-  console.log(this, 'is just visible more that 30% of it from the top on viewport');
+  console.log(this, 'is just visible more than 30% of it from the top on viewport');
   
 }).else(function () {
 
-  console.log(this, 'is not anymore visible more that 30% of it from the top on viewport');
+  console.log(this, 'is not anymore visible more than 30% of it from the top on viewport');
   
 });
 ```
@@ -108,11 +108,11 @@ NodeVision('#myDiv')
 .fromTop()
 .then(function () {
 
-  console.log(this, 'is just visible more that 30% of it from the top on viewport');
+  console.log(this, 'is just visible more than 30% of it from the top on viewport');
   
 }).else(function () {
 
-  console.log(this, 'is not anymore visible more that 30% of it from the top on viewport');
+  console.log(this, 'is not anymore visible than that 30% of it from the top on viewport');
   
 });
 ```
@@ -122,11 +122,11 @@ NodeVision('#myDiv')
 .ifVisible('bottom 30%')
 .then(function () {
 
-  console.log(this, 'is just visible more that 30% of it from the bottom on viewport');
+  console.log(this, 'is just visible more than 30% of it from the bottom on viewport');
   
 }).else(function () {
 
-  console.log(this, 'is not anymore visible more that 30% of it from the bottom on viewport');
+  console.log(this, 'is not anymore visible more than 30% of it from the bottom on viewport');
   
 });
 ```
